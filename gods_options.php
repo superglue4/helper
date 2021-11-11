@@ -38,7 +38,7 @@ foreach ($gods as $opts) {
  */
 function po_list_option(array $array)
 {
-    $return = array();
+    $return = [];
     foreach ($array as $k => $v) {
         if (is_array($v) && !isset($v['inven'])) {
             $sum = 0;
@@ -47,9 +47,9 @@ function po_list_option(array $array)
                     $sum += $val;
                 }
             });
-            $return[] = array('name' => $k, 'inven' => $sum, 'option' => po_list_option($v));
+            $return[] = ['name' => $k, 'inven' => $sum, 'option' => po_list_option($v)];
         } else {
-            $return[] = array_merge(array('name' => $k), $v);
+            $return[] = array_merge(['name' => $k], $v);
         }
     }
     return $return;
